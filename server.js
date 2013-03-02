@@ -60,7 +60,13 @@ app.post('/login', function(req, res) {
     // do login stuff
     req.session.login = req.body.username;
     
-    res.redirect(302, 'http://cdemo.twesselman.c9.io/calder.html');
+    res.redirect('/gotoworkspace');
+});
+
+app.get('/gotoworkspace', function(req, res) {
+    console.log('gotoworkspace: '+req.body.username + ' password: ' + req.body.password);
+    
+    res.redirect('http://10.81.108.13:3000/calder.html');
 });
 
 app.get('/launch/:app', function(req, res) {
@@ -109,7 +115,7 @@ app.get('/launch/:app', function(req, res) {
 
 
 // listen
-var port = process.env.PORT || 80;
+var port = process.env.PORT || 3000;
 app.listen(port, function () {
     console.log('Calder Session Manager - listening on '+port);
 });
