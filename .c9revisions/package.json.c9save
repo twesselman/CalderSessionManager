@@ -1,0 +1,2 @@
+{"ts":1362258876017,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"{\r\n  \"name\": \"cdemo\",\r\n  \"version\": \"0.0.1\",\r\n  \"dependencies\": {\r\n    \"express\": \"3.x\"\r\n  },\r\n  \"engines\": {\r\n    \"node\": \"0.8.x\",\r\n    \"npm\": \"1.1.x\"\r\n  }\r\n}"]],"start1":0,"start2":0,"length1":0,"length2":159}]],"length":159}
+{"contributors":[],"silentsave":false,"ts":1362258908157,"patch":[[{"diffs":[[0,": \"c"],[-1,"demo"],[1,"sm"],[0,"\",\r\n"]],"start1":11,"start2":11,"length1":12,"length2":10}]],"length":157,"saved":false}
