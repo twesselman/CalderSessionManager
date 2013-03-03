@@ -122,3 +122,5 @@
 {"ts":1362344292471,"patch":[[{"diffs":[[0,"irect = "],[1,"'http://"],[0,"uriWorks"]],"start1":2082,"start2":2082,"length1":16,"length2":24}]],"length":3677,"saved":false}
 {"ts":1362344293897,"patch":[[{"diffs":[[0,"'http://"],[1,"' "],[0,"uriWorks"]],"start1":2090,"start2":2090,"length1":16,"length2":18}]],"length":3679,"saved":false}
 {"ts":1362344294901,"patch":[[{"diffs":[[0,"http://'"],[1," +"],[0," uriWork"]],"start1":2091,"start2":2091,"length1":16,"length2":18}]],"length":3681,"saved":false}
+{"ts":1362344464391,"patch":[[{"diffs":[[0,"kspace+'"],[-1,"\""],[0,"3000/wor"]],"start1":2108,"start2":2108,"length1":17,"length2":16}]],"length":3680,"saved":false}
+{"ts":1362344469378,"patch":[[{"diffs":[[0,"kspace+'"],[1,":"],[0,"3000/wor"]],"start1":2108,"start2":2108,"length1":16,"length2":17}]],"length":3681,"saved":false}

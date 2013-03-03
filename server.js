@@ -50,7 +50,7 @@ app.get('/gotoworkspace', function(req, res) {
     console.log('gotoworkspace: username: '+req.session.username + ', password: ' + req.session.password);
     
     var uniqueID = 'idval:'+req.session.username;
-    var uriRedirect = 'http://' + uriWorkspace+'"3000/workspace?csuserid='+uniqueID+'&csmanager='+uriCSManager;
+    var uriRedirect = 'http://' + uriWorkspace+':3000/workspace?csuserid='+uniqueID+'&csmanager='+uriCSManager;
     console.log('uriRedirect: ' + uriRedirect);
     res.redirect(uriRedirect);
 });
