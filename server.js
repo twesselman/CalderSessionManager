@@ -44,8 +44,8 @@ var myApps = {"apps": [
         {"name": "Outlook", "imagefile": "outlook.png", "exe": "/launch/outlook"},        
         {"name": "Word", "imagefile": "word.png", "exe": "/launch/word"},        
         {"name": "Excel", "imagefile": "excel.png", "exe": "/launch/excel"},        
-        {"name": "Powerpoint", "imagefile": "powerpoint.png", "exe": "/launch/msppt"},        
-        {"name": "Paint", "imagefile": "mspaint.png", "exe": "/launch/mspaint"},        
+        {"name": "Powerpoint", "imagefile": "powerpoint.png", "exe": "10.81.108.14:3000/launch/msppt"},        
+        {"name": "Paint", "imagefile": "mspaint.png", "exe": "10.81.108.14:3000/launch/mspaint"},        
         {"name": "Aptana", "imagefile": "aptana.png", "exe": "/launch/aptana"},
         {"name": "Autocad", "imagefile": "autocad.png", "exe": "#"},
         {"name": "SAP ERP", "imagefile": "erp.png", "exe": "#"}
@@ -97,7 +97,6 @@ app.get('/launch/:app', function(req, res) {
         break;
     default: 
         appPath = req.params.app;
-    
     }
 
     if (appPath) {
@@ -116,10 +115,7 @@ app.get('/launch/:app', function(req, res) {
     
     console.log(url);
     res.redirect(url);
-
-//    res.redirect(ericomurl);
 });
-
 
 // listen
 var port = process.env.PORT || 3000;
@@ -129,15 +125,14 @@ app.listen(port, function () {
     if (process.argv[2]=='c9')
     {
         console.log('running in c9');
-        uriWorkspace='http://cdemo.twesselman.c9.io';
-        uriCSManager='http://caldersessionmanager.twesselman.c9.io';
+        uriWorkspace='cdemo.twesselman.c9.io';
+        uriCSManager='caldersessionmanager.twesselman.c9.io';
     }
     else
     {
         console.log('running in openstack');
-        uriWorkspace='http://cdemo.twesselman.c9.io';
-//        uriWorkspace='http://10.81.108.13:3000';
-        uriCSManager='http://10.81.108.14:3000';
+        uriWorkspace='10.81.108.13:3000';
+        uriCSManager='10.81.108.14:3000';
     }
 });
 
