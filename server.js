@@ -4,13 +4,11 @@ var app = express();
 app.use(express.cookieParser());
 app.use(express.cookieSession({ secret: 'Calder Demo Secret', cookie: { maxAge: 60 * 60 * 1000 }}));
  
+// Stuff session manager knows
+
 var ericomurl='http://10.81.108.10:8080/AccessNow/start.html';
 
-var uriWorkspace='http://cdemo.twesselman.c9.io';
-//var uriWorkspace='http://10.81.108.13:3000';
-
-var uriCSManager='http://caldersessionmanager.twesselman.c9.io';
-//var uriCSManager='http://10.81.108.14:3000';
+var uriWorkspace, uriCSManager;
 
 app.configure(function() {
     app.use(express.bodyParser());
@@ -126,5 +124,19 @@ app.get('/launch/:app', function(req, res) {
 var port = process.env.PORT || 3000;
 app.listen(port, function () {
     console.log('Calder Session Manager - listening on '+port);
+    console.log(process.argv);
+    if (process.argv[2]='c9')
+    {
+        console.log('running in c9');
+        uriWorkspace='http://cdemo.twesselman.c9.io';
+        uriCSManager='http://caldersessionmanager.twesselman.c9.io';
+    }
+    else
+    {
+        console.log('running in openstack');
+        uriWorkspace='http://cdemo.twesselman.c9.io';
+//        uriWorkspace='http://10.81.108.13:3000';
+        uriCSManager='http://10.81.108.14:3000';
+    }
 });
 
