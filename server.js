@@ -8,7 +8,8 @@ app.use(express.cookieSession({ secret: 'Calder Demo Secret', cookie: { maxAge: 
 
 var ericomurl='http://10.81.108.10:8080/AccessNow/start.html';
 
-var uriWorkspace, uriCSManager;
+var uriWorkspace='10.81.108.13:3000';
+var uriCSManager='10.81.108.14:3000';
 
 app.configure(function() {
     app.use(express.bodyParser());
@@ -17,36 +18,13 @@ app.configure(function() {
     app.use(express.static(__dirname + '/website'));    
     });
 
-
-app.post('/set', function (req, res) {
-    console.log('set called');
-    req.session.username = req.body.name;
-    res.cookie('mycookie', req.body.name);
-    res.send('session.username set to ' + req.body.name);
-});
-
-app.get('/read', function(req, res) {
-   if(req.session.username)
-   {
-       var result = 'session.username: ' + req.session.username + '<br>';
-       result += 'cookie: ' + req.cookies.mycookie +'<br>';
-       
-       result += req.cookies;
-       res.send(result);
-   } 
-   else
-   {
-       res.send('no data');
-   }  
-});
-
 var myApps = {"apps": [
-        {"name": "Outlook", "imagefile": "outlook.png", "exe": "/launch/outlook"},        
-        {"name": "Word", "imagefile": "word.png", "exe": "/launch/word"},        
-        {"name": "Excel", "imagefile": "excel.png", "exe": "/launch/excel"},        
-        {"name": "Powerpoint", "imagefile": "powerpoint.png", "exe": "10.81.108.14:3000/launch/msppt"},        
-        {"name": "Paint", "imagefile": "mspaint.png", "exe": "10.81.108.14:3000/launch/mspaint"},        
-        {"name": "Aptana", "imagefile": "aptana.png", "exe": "/launch/aptana"},
+        {"name": "Outlook", "imagefile": "outlook.png", "exe": "http://10.81.108.14:3000//launch/outlook"},        
+        {"name": "Word", "imagefile": "word.png", "exe": "http://10.81.108.14:3000//launch/word"},        
+        {"name": "Excel", "imagefile": "excel.png", "exe": "http://10.81.108.14:3000//launch/excel"},        
+        {"name": "Powerpoint", "imagefile": "powerpoint.png", "exe": "#"},        
+        {"name": "Paint", "imagefile": "mspaint.png", "exe": "http://10.81.108.14:3000/launch/mspaint"},        
+        {"name": "Aptana", "imagefile": "aptana.png", "exe": "http://10.81.108.14:3000//launch/aptana"},
         {"name": "Autocad", "imagefile": "autocad.png", "exe": "#"},
         {"name": "SAP ERP", "imagefile": "erp.png", "exe": "#"}
     ]
@@ -73,6 +51,7 @@ app.get('/gotoworkspace', function(req, res) {
     
     var uniqueID = 'idval:'+req.session.username;
     var uriRedirect = uriWorkspace+'/workspace?csuserid='+uniqueID+'&csmanager='+uriCSManager;
+    console.log('uriRedirect: ' + uriRedirect);
     res.redirect(uriRedirect);
 });
 
@@ -122,17 +101,5 @@ var port = process.env.PORT || 3000;
 app.listen(port, function () {
     console.log('Calder Session Manager - listening on '+port);
     console.log(process.argv);
-    if (process.argv[2]=='c9')
-    {
-        console.log('running in c9');
-        uriWorkspace='cdemo.twesselman.c9.io';
-        uriCSManager='caldersessionmanager.twesselman.c9.io';
-    }
-    else
-    {
-        console.log('running in openstack');
-        uriWorkspace='10.81.108.13:3000';
-        uriCSManager='10.81.108.14:3000';
-    }
 });
 
