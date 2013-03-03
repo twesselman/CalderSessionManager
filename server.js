@@ -62,7 +62,8 @@ app.post('/login', function(req, res) {
     console.log('login: '+req.body.username + ' password: ' + req.body.password);
     
     // do login stuff
-    req.session.login = req.body.username;
+    req.session.username = req.body.username;
+    req.session.password = req.body.password;
     
     res.redirect('/gotoworkspace');
 });
@@ -70,7 +71,7 @@ app.post('/login', function(req, res) {
 app.get('/gotoworkspace', function(req, res) {
     console.log('gotoworkspace: username: '+req.body.username + ', password: ' + req.body.password);
     
-    var uniqueID = 'userid';
+    var uniqueID = 'idval:'+req.body.username;
     var uriRedirect = uriWorkspace+'/workspace?csuserid='+uniqueID+'&csmanager='+uriCSManager;
     res.redirect(uriRedirect);
 });
