@@ -125,7 +125,7 @@ var port = process.env.PORT || 3000;
 app.listen(port, function () {
     console.log('Calder Session Manager - listening on '+port);
     console.log(process.argv);
-    if (process.argv[2]='c9')
+    if (process.argv[2]=='c9')
     {
         console.log('running in c9');
         uriWorkspace='http://cdemo.twesselman.c9.io';
