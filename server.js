@@ -8,8 +8,8 @@ app.use(express.cookieSession({ secret: 'Calder Demo Secret', cookie: { maxAge: 
 
 var ericomurl='http://10.81.108.10:8080/AccessNow/start.html';
 
-var uriWorkspace='10.81.108.13:3000';
-var uriCSManager='10.81.108.14:3000';
+var uriWorkspace='10.81.108.13';
+var uriCSManager='10.81.108.14';
 
 app.configure(function() {
     app.use(express.bodyParser());
@@ -50,7 +50,7 @@ app.get('/gotoworkspace', function(req, res) {
     console.log('gotoworkspace: username: '+req.session.username + ', password: ' + req.session.password);
     
     var uniqueID = 'idval:'+req.session.username;
-    var uriRedirect = uriWorkspace+'/workspace?csuserid='+uniqueID+'&csmanager='+uriCSManager;
+    var uriRedirect = 'http://' + uriWorkspace+'"3000/workspace?csuserid='+uniqueID+'&csmanager='+uriCSManager;
     console.log('uriRedirect: ' + uriRedirect);
     res.redirect(uriRedirect);
 });
