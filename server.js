@@ -6,6 +6,12 @@ app.use(express.cookieSession({ secret: 'Calder Demo Secret', cookie: { maxAge: 
  
 var ericomurl='http://10.81.108.10:8080/AccessNow/start.html';
 
+var uriWorkspace='http://cdemo.twesselman.c9.io';
+//var uriWorkspace='http://10.81.108.13:3000';
+
+var uriCSManager='http://caldersessionmanager.twesselman.c9.io';
+//var uriCSManager='http://10.81.108.14:3000';
+
 app.configure(function() {
     app.use(express.bodyParser());
     app.use(express.cookieParser());
@@ -64,9 +70,11 @@ app.post('/login', function(req, res) {
 });
 
 app.get('/gotoworkspace', function(req, res) {
-    console.log('gotoworkspace: '+req.body.username + ' password: ' + req.body.password);
+    console.log('gotoworkspace: username: '+req.body.username + ', password: ' + req.body.password);
     
-    res.redirect('http://10.81.108.13:3000/calder.html');
+    var uniqueID = 'userid';
+    var uriRedirect = uriWorkspace+'/workspace?csuserid='+uniqueID+'&csmanager='+uriCSManager;
+    res.redirect(uriRedirect);
 });
 
 app.get('/launch/:app', function(req, res) {
