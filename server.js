@@ -69,9 +69,9 @@ app.post('/login', function(req, res) {
 });
 
 app.get('/gotoworkspace', function(req, res) {
-    console.log('gotoworkspace: username: '+req.body.username + ', password: ' + req.body.password);
+    console.log('gotoworkspace: username: '+req.session.username + ', password: ' + req.session.password);
     
-    var uniqueID = 'idval:'+req.body.username;
+    var uniqueID = 'idval:'+req.session.username;
     var uriRedirect = uriWorkspace+'/workspace?csuserid='+uniqueID+'&csmanager='+uriCSManager;
     res.redirect(uriRedirect);
 });

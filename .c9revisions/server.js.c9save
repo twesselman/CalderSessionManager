@@ -67,3 +67,6 @@
 {"ts":1362337347538,"patch":[[{"diffs":[[0,"ueID = '"],[-1,"userid"],[1,"idval"],[0,":';\r\n   "]],"start1":2445,"start2":2445,"length1":22,"length2":21}]],"length":4489,"saved":false}
 {"ts":1362337350952,"patch":[[{"diffs":[[0,"'idval:'"],[1,"+"],[0,";\r\n    v"]],"start1":2452,"start2":2452,"length1":16,"length2":17}]],"length":4490,"saved":false}
 {"ts":1362337354983,"patch":[[{"diffs":[[0,"idval:'+"],[1,"req.body.username"],[0,";\r\n    v"]],"start1":2453,"start2":2453,"length1":16,"length2":33}]],"length":4507,"saved":false}
+{"ts":1362337515484,"patch":[[{"diffs":[[0,"username: '+req."],[-1,"body"],[1,"session"],[0,".username + ', p"]],"start1":2357,"start2":2357,"length1":36,"length2":39}]],"length":4510,"saved":false}
+{"ts":1362337519149,"patch":[[{"diffs":[[0,"ssword: ' + req."],[-1,"body"],[1,"session"],[0,".password);\r\n   "]],"start1":2397,"start2":2397,"length1":36,"length2":39}]],"length":4513,"saved":false}
+{"ts":1362337523711,"patch":[[{"diffs":[[0,"idval:'+req."],[-1,"body"],[1,"session"],[0,".username;\r\n"]],"start1":2459,"start2":2459,"length1":28,"length2":31}]],"length":4516,"saved":false}
