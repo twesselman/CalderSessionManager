@@ -97,7 +97,7 @@ app.get('/launch/:app', function(req, res) {
 });
 
 // listen
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3001;
 app.listen(port, function () {
     console.log('Calder Session Manager - listening on '+port);
     console.log(process.argv);
